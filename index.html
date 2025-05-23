@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historical Digital Letter</title>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <title>Aged Manuletter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,870 +13,255 @@
         }
 
         body {
-            background: linear-gradient(135deg, #f7f3e9 0%, #e8dcc0 50%, #d4c4a0 100%);
+            background: #e8e1d1;
             min-height: 100vh;
             font-family: 'Crimson Text', serif;
-            color: #4a3728;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Futuristic grid overlay */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(139, 119, 101, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(139, 119, 101, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-            pointer-events: none;
-            z-index: 1;
-            animation: gridShift 20s linear infinite;
-        }
-
-        @keyframes gridShift {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-
-        /* Paper texture overlay */
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
-            opacity: 0.3;
-            pointer-events: none;
-            z-index: 2;
-        }
-
-        /* Intro screen */
-        .intro-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #2c1810 0%, #4a3728 50%, #6b5b4f 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            transition: all 1.5s ease-in-out;
-        }
-
-        .intro-screen.hidden {
-            opacity: 0;
-            transform: scale(0.8);
-            pointer-events: none;
-        }
-
-        .intro-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: #f7f3e9;
-            text-align: center;
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeInUp 2s ease 0.5s forwards;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .intro-subtitle {
-            font-family: 'Courier Prime', monospace;
-            font-size: 1.2rem;
-            color: #d4c4a0;
-            text-align: center;
-            margin-bottom: 3rem;
-            opacity: 0;
-            animation: fadeInUp 2s ease 1s forwards;
-        }
-
-        .access-button {
-            background: rgba(247, 243, 233, 0.1);
-            border: 2px solid #d4c4a0;
-            color: #f7f3e9;
-            padding: 1rem 2rem;
-            font-family: 'Courier Prime', monospace;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            opacity: 0;
-            animation: fadeInUp 2s ease 1.5s forwards;
-            backdrop-filter: blur(10px);
-            border-radius: 50px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .access-button:hover {
-            background: rgba(247, 243, 233, 0.2);
-            box-shadow: 0 0 20px rgba(212, 196, 160, 0.3);
-            transform: translateY(-2px);
-        }
-
-        .access-button::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -60%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                to bottom right, 
-                rgba(255,255,255,0) 45%,
-                rgba(255,255,255,0.1) 50%,
-                rgba(255,255,255,0) 55%
-            );
-            transform: rotate(30deg);
-            transition: all 0.3s;
-        }
-
-        .access-button:hover::after {
-            left: 100%;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-        }
-
-        /* Main container */
-        .container {
+            color: #3a3226;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            padding: 2rem;
-            position: relative;
-            z-index: 2;
+            padding: 40px 20px;
+            line-height: 1.6;
+            background-image: url('https://www.transparenttextures.com/patterns/old-map.png');
         }
 
-        .letter {
-            background: linear-gradient(145deg, #faf7f0 0%, #f0ebe1 100%);
+        .manuletter-container {
             max-width: 800px;
             width: 100%;
-            border-radius: 20px;
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .manuletter {
+            background: #f8f4e8;
+            padding: 60px 50px;
+            border-radius: 2px;
             box-shadow: 
-                0 20px 40px rgba(74, 55, 40, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.6),
-                0 0 0 1px rgba(139, 119, 101, 0.2);
+                0 2px 10px rgba(0, 0, 0, 0.1),
+                inset 0 0 100px rgba(214, 191, 157, 0.3);
             position: relative;
-            overflow: hidden;
-            transform: scale(0.8) rotateX(10deg);
-            opacity: 0;
-            transition: all 1s ease;
-            background-image: url('https://www.transparenttextures.com/patterns/rice-paper.png');
-            background-blend-mode: overlay;
-        }
-
-        .letter.opened {
-            transform: scale(1) rotateX(0deg);
-            opacity: 1;
-        }
-
-        /* Letter seal animation */
-        .letter-seal {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 120px;
-            height: 120px;
-            background: radial-gradient(circle, #8b7765 0%, #6b5b4f 100%);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
+            border: 1px solid #d8d1c0;
+            transform-origin: center top;
             transition: all 0.5s ease;
-            box-shadow: 0 10px 30px rgba(74, 55, 40, 0.3);
-            z-index: 10;
-            border: 2px solid rgba(212, 196, 160, 0.5);
+            background-image: url('https://www.transparenttextures.com/patterns/rice-paper-3.png');
+            background-blend-mode: multiply;
         }
 
-        .letter-seal:hover {
-            transform: translate(-50%, -50%) scale(1.1);
-            box-shadow: 0 15px 40px rgba(74, 55, 40, 0.4);
-        }
-
-        .letter-seal.broken {
-            transform: translate(-50%, -50%) scale(0) rotate(360deg);
-            opacity: 0;
-        }
-
-        .seal-text {
-            color: #f7f3e9;
-            font-family: 'Playfair Display', serif;
-            font-size: 0.9rem;
-            text-align: center;
-            font-weight: 700;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-        }
-
-        /* Wax seal crack effect */
-        .seal-crack {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(45deg, transparent 45%, rgba(0,0,0,0.2) 50%, transparent 55%),
-                linear-gradient(-45deg, transparent 45%, rgba(0,0,0,0.2) 50%, transparent 55%);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .letter-seal:hover .seal-crack {
-            opacity: 0.5;
-        }
-
-        /* Letter content */
-        .letter-content {
-            padding: 3rem;
-            opacity: 0;
-            transition: opacity 1s ease 0.5s;
-            position: relative;
-        }
-
-        .letter.opened .letter-content {
-            opacity: 1;
-        }
-
-        /* Document header */
-        .document-header {
-            border-bottom: 2px solid #d4c4a0;
-            padding-bottom: 1rem;
-            margin-bottom: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-family: 'Courier Prime', monospace;
-            font-size: 0.9rem;
-            color: #8b7765;
-        }
-
-        .document-id {
-            font-weight: 700;
-        }
-
-        .document-date {
-            font-style: italic;
-        }
-
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: #4a3728;
-            margin-bottom: 2rem;
-            text-align: center;
-            position: relative;
-            font-weight: 700;
-        }
-
-        h1::after {
+        /* Aging effects */
+        .manuletter::before {
             content: '';
             position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 2px;
-            background: linear-gradient(90deg, #8b7765, #d4c4a0);
-            border-radius: 1px;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px solid rgba(168, 148, 107, 0.2);
+            pointer-events: none;
         }
 
-        .paragraph {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            color: #4a3728;
-            text-align: justify;
+        .manuletter::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 15px;
+            background: linear-gradient(135deg, transparent 95%, rgba(0,0,0,0.05) 96%, transparent 97%);
+        }
+
+        .letter-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #5d4b36;
             position: relative;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s ease;
-            cursor: pointer;
-            padding: 1rem;
-            border-radius: 10px;
-            border-left: 4px solid transparent;
-            background: rgba(255,255,255,0.3);
+            padding-bottom: 15px;
+            transition: color 0.3s ease;
         }
 
-        .paragraph.revealed {
-            opacity: 1;
-            transform: translateY(0);
-            border-left-color: #d4c4a0;
-            background: rgba(212, 196, 160, 0.1);
+        .letter-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 1px;
+            background: #d4c4a0;
+            transition: all 0.3s ease;
         }
 
-        .paragraph.clickable {
-            background: rgba(139, 119, 101, 0.05);
-            border: 1px dashed #d4c4a0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        .letter-content {
+            font-size: 18px;
+            transition: all 0.3s ease;
         }
 
-        .paragraph.clickable:hover {
-            background: rgba(139, 119, 101, 0.1);
-            transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(139, 119, 101, 0.1);
+        .letter-content p {
+            margin-bottom: 22px;
+            text-align: justify;
+            transition: all 0.3s ease;
         }
 
         .highlight {
-            background: linear-gradient(120deg, rgba(139, 119, 101, 0.2) 0%, rgba(212, 196, 160, 0.3) 100%);
-            padding: 2px 6px;
-            border-radius: 4px;
             font-style: italic;
+            color: #7a6b56;
             font-weight: 600;
-            position: relative;
+            transition: all 0.3s ease;
         }
 
         .signature {
             text-align: right;
             font-style: italic;
-            color: #8b7765;
-            font-size: 1rem;
-            margin-top: 2rem;
-            position: relative;
+            margin-top: 50px;
+            color: #5d4b36;
             font-family: 'Playfair Display', serif;
+            position: relative;
+            transition: all 0.3s ease;
         }
 
         .signature::before {
             content: '';
             position: absolute;
-            top: -10px;
+            top: -15px;
             right: 0;
             width: 200px;
             height: 1px;
-            background: linear-gradient(90deg, transparent, #d4c4a0);
-        }
-
-        /* Ink spots for realism */
-        .ink-spot {
-            position: absolute;
-            background: rgba(74, 55, 40, 0.1);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .ink-spot-1 {
-            width: 30px;
-            height: 30px;
-            top: 15%;
-            left: 10%;
-        }
-
-        .ink-spot-2 {
-            width: 20px;
-            height: 20px;
-            bottom: 20%;
-            right: 15%;
-        }
-
-        /* Progress indicator */
-        .progress-bar {
-            position: fixed;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(74, 55, 40, 0.1);
-            height: 6px;
-            width: 300px;
-            border-radius: 3px;
-            backdrop-filter: blur(10px);
-            z-index: 100;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #8b7765, #d4c4a0);
-            border-radius: 3px;
-            width: 0%;
-            transition: width 0.5s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .progress-fill::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(
-                90deg,
-                rgba(255,255,255,0.1) 0%,
-                rgba(255,255,255,0.3) 50%,
-                rgba(255,255,255,0.1) 100%
-            );
-            animation: progressShine 2s infinite;
-        }
-
-        @keyframes progressShine {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-
-        /* Continue button */
-        .continue-hint {
-            text-align: center;
-            margin-top: 2rem;
-            font-family: 'Courier Prime', monospace;
-            color: #8b7765;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            position: relative;
-            padding: 0.5rem;
-            border-radius: 20px;
-            background: rgba(212, 196, 160, 0.1);
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .continue-hint.show {
-            opacity: 1;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: translateX(-50%) scale(1); }
-            50% { transform: translateX(-50%) scale(1.05); }
-            100% { transform: translateX(-50%) scale(1); }
-        }
-
-        /* Reply section */
-        .reply-section {
-            margin-top: 3rem;
-            padding: 2rem;
-            background: rgba(212, 196, 160, 0.1);
-            border-radius: 10px;
-            border: 1px dashed #d4c4a0;
-            display: none;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s ease;
-        }
-
-        .reply-section.visible {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .reply-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: #4a3728;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .reply-options {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .reply-button {
-            background: rgba(139, 119, 101, 0.1);
-            border: 1px solid #d4c4a0;
-            color: #4a3728;
-            padding: 0.5rem 1.5rem;
-            font-family: 'Courier Prime', monospace;
-            font-size: 0.9rem;
-            cursor: pointer;
+            background: linear-gradient(to left, #d4c4a0, transparent);
             transition: all 0.3s ease;
-            border-radius: 20px;
         }
 
-        .reply-button:hover {
-            background: rgba(139, 119, 101, 0.2);
-            transform: translateY(-2px);
+        /* Scroll-based tone classes */
+        .manuletter.warm-tone {
+            background-color: #f9f0dd;
+        }
+        .manuletter.warm-tone .letter-heading,
+        .manuletter.warm-tone .signature {
+            color: #6b4f3a;
+        }
+        .manuletter.warm-tone .letter-heading::after,
+        .manuletter.warm-tone .signature::before {
+            background: linear-gradient(to left, #c9b18d, transparent);
         }
 
-        .reply-sent {
-            text-align: center;
-            font-family: 'Crimson Text', serif;
-            font-style: italic;
-            color: #8b7765;
-            margin-top: 1rem;
-            display: none;
+        .manuletter.cool-tone {
+            background-color: #f5f7f0;
+        }
+        .manuletter.cool-tone .letter-heading,
+        .manuletter.cool-tone .signature {
+            color: #4a5d5c;
+        }
+        .manuletter.cool-tone .letter-heading::after,
+        .manuletter.cool-tone .signature::before {
+            background: linear-gradient(to left, #a8b8b7, transparent);
         }
 
-        /* Responsive design */
+        .manuletter.sepia-tone {
+            background-color: #f4e9d8;
+        }
+        .manuletter.sepia-tone .letter-heading,
+        .manuletter.sepia-tone .signature {
+            color: #5c4a36;
+        }
+        .manuletter.sepia-tone .letter-heading::after,
+        .manuletter.sepia-tone .signature::before {
+            background: linear-gradient(to left, #b8a58d, transparent);
+        }
+
         @media (max-width: 768px) {
-            .intro-title {
-                font-size: 2rem;
+            .manuletter {
+                padding: 40px 30px;
             }
             
-            .container {
-                padding: 1rem;
+            .letter-heading {
+                font-size: 24px;
             }
             
             .letter-content {
-                padding: 2rem;
+                font-size: 16px;
             }
-            
-            .paragraph {
-                font-size: 1rem;
-                text-align: left;
-            }
-            
-            .progress-bar {
-                width: 250px;
-            }
-
-            .reply-options {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-
-        /* Typing effect */
-        .typing-effect {
-            border-right: 2px solid #8b7765;
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            0%, 50% { border-right-color: #8b7765; }
-            51%, 100% { border-right-color: transparent; }
-        }
-
-        /* Fold effect */
-        .letter::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, transparent 95%, rgba(0,0,0,0.05) 96%, transparent 97%);
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        /* Handwritten effect for signature */
-        .handwritten {
-            font-family: 'Crimson Text', cursive;
-            position: relative;
-        }
-
-        .handwritten::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: currentColor;
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.5s ease;
-        }
-
-        .revealed.handwritten::after {
-            transform: scaleX(1);
-            transform-origin: left;
         }
     </style>
 </head>
 <body>
-    <!-- Intro Screen -->
-    <div class="intro-screen" id="introScreen">
-        <div class="intro-title">Digital Archive #2847</div>
-        <div class="intro-subtitle">Recovered Historical Document</div>
-        <button class="access-button" onclick="openArchive()">ACCESS DOCUMENT</button>
-    </div>
-
-    <!-- Progress Bar -->
-    <div class="progress-bar">
-        <div class="progress-fill" id="progressFill"></div>
-    </div>
-
-    <div class="container">
-        <div class="letter" id="letterContainer">
-            <!-- Letter Seal -->
-            <div class="letter-seal" id="letterSeal" onclick="breakSeal()">
-                <div class="seal-text">PRIVATE<br>DOCUMENT</div>
-                <div class="seal-crack"></div>
-            </div>
-
-            <!-- Letter Content -->
-            <div class="letter-content" id="letterContent">
-                <div class="document-header">
-                    <div class="document-id">DOC-ID: #QH-2847</div>
-                    <div class="document-date">ARCHIVED: 2025.05.23</div>
-                </div>
-
-                <div class="ink-spot ink-spot-1"></div>
-                <div class="ink-spot ink-spot-2"></div>
-
-                <h1>Dear Jani,</h1>
-                
-                <div class="paragraph" onclick="revealParagraph(0)">
-                    There's no clue who is writing this, and I truly wish for this to stay anonymous. I'm just… <span class="highlight">a nobody</span>. A silent person who saw you once and never forgot.
-                </div>
-                
-                <div class="paragraph" onclick="revealParagraph(1)">
-                    I first saw you when we were in 8th grade. Back then, my world was quiet — almost like I lived in a space only I knew. And then, you entered that world, unknowingly breaking the silence I had wrapped myself in.
-                </div>
-                
-                <div class="paragraph" onclick="revealParagraph(2)">
-                    I was never the talkative type. I barely spoke to anyone — just watched people from afar, too shy to ever step closer. I've always been an introvert, someone who finds it hard to talk, even harder to express.
-                </div>
-                
-                <div class="paragraph" onclick="revealParagraph(3)">
-                    And one day, a long time later, you smiled at me for no reason — while I was walking with my friend. I took it as a casual smile. But he didn't. He sparked a thought of you in my mind that never really faded.
-                </div>
-                
-                <div class="paragraph" onclick="revealParagraph(4)">
-                    For the past six years, I've quietly carried that flicker. Somewhere in between, I got a beautiful opportunity to connect with you — a rare, unexpected moment, like a thread the universe dropped between us. But as always, I stayed silent. Not because I didn't want to talk, but because I didn't know how to. And I guess, neither did you.
-                </div>
-                
-                <div class="paragraph" onclick="revealParagraph(5)">
-                    You probably don't remember me. You probably never even noticed me. That's okay.
-                </div>
-                
-                <div class="paragraph" onclick="revealParagraph(6)">
-                    Still, I know a lot about you — not in a creepy way, but out of curiosity, admiration. I followed your journey from a distance. I watched your stories. I saw your smile again.
-                </div>
-                
-                <div class="paragraph" onclick="revealParagraph(7)">
-                    And though I found ways to know more about you, I had chances to say hi. I didn't. Not because I feared rejection. But because I feared breaking whatever fragile, imagined version of you I carried in my mind. And maybe a little because of my ego. Or fear of being just another forgettable face.
-                </div>
-                
-                <div class="paragraph" onclick="revealParagraph(8)">
-                    I know how this sounds — strange, maybe even unsettling. But I promise, this isn't some twisted love letter. It's more like… <span class="highlight">closure</span>. For me.
-                </div>
-                
-                <div class="paragraph" onclick="revealParagraph(9)">
-                    Because after six years, I want to stop thinking about what <span class="highlight">could've been</span> — and start making peace with what <span class="highlight">wasn't</span>.
-                </div>
-                
-                <div class="paragraph" onclick="revealParagraph(10)">
-                    That's why I'm writing this. To stop. To move on.
-                </div>
-                
-                <div class="paragraph" onclick="revealParagraph(11)">
-                    But before that, I needed to tell you this — not because I expect a reply, not because I want you to feel something, but because this is the only way I can free myself.
-                </div>
-                
-                <div class="paragraph" onclick="revealParagraph(12)">
-                    And maybe, just maybe — if you ever read this, and if any word even slightly touches you, drop a reply — even just a "👍" — just to let me feel like I made a tiny ripple in your world.
-                </div>
-                
-                <div class="paragraph" onclick="revealParagraph(13)">
-                    All I ever wanted was to send this thought out into the universe. I honestly don't know where I found the courage to send this. Maybe it's madness. Maybe it's healing. Or maybe it's just time.
-                </div>
-                
-                <div class="paragraph" onclick="revealParagraph(14)">
-                    This isn't a confession. This isn't a proposal. This is just a quiet goodbye to a story that never began — but lived in someone's heart for far too long.
-                </div>
-                
-                <div class="paragraph" onclick="revealParagraph(15)">
-                    Wishing you peace, freedom, and everything beautiful you deserve. And thank you — for unknowingly being part of someone's universe. Someone you may never remember, but who'll always remember you.
-                </div>
-                
-                <div class="paragraph signature handwritten" onclick="revealParagraph(16)">
-                    A stranger with a quiet heart
-                </div>
-
-                <div class="continue-hint" id="continueHint">
-                    [ TAP TO REVEAL NEXT SECTION ]
-                </div>
-
-                <!-- Reply Section -->
-                <div class="reply-section" id="replySection">
-                    <div class="reply-title">Would you like to reply?</div>
-                    <div class="reply-options">
-                        <button class="reply-button" onclick="sendReply('👍')">Send 👍</button>
-                        <button class="reply-button" onclick="sendReply('❤️')">Send ❤️</button>
-                        <button class="reply-button" onclick="sendReply('✉️')">Write More</button>
-                    </div>
-                    <div class="reply-sent" id="replySent">
-                        Your response has been sent into the digital void...
-                    </div>
-                </div>
+    <div class="manuletter-container">
+        <div class="manuletter" id="manuletter">
+            <h1 class="letter-heading">To Someone Special,</h1>
+            
+            <div class="letter-content">
+                <p>There's no clue who is writing this, and I truly wish for this to stay anonymous. I'm just… <span class="highlight">a nobody</span>. A silent person who saw you once and never forgot.</p>
+                <p>I first saw you when we were in 8th grade. Back then, my world was quiet — almost like I lived in a space only I knew. And then, you entered that world, unknowingly breaking the silence I had wrapped myself in.</p>
+                <p>I was never the talkative type. I barely spoke to anyone — just watched people from afar, too shy to ever step closer. I've always been an introvert, someone who finds it hard to talk, even harder to express.</p>
+                <p>And one day, a long time later, you smiled at me for no reason — while I was walking with my friend. I took it as a casual smile. But he didn't. He sparked a thought of you in my mind that never really faded.</p>
+                <p>For the past six years, I've quietly carried that flicker. Somewhere in between, I got a beautiful opportunity to connect with you — a rare, unexpected moment, like a thread the universe dropped between us. But as always, I stayed silent. Not because I didn't want to talk, but because I didn't know how to. And I guess, neither did you.</p>
+                <p>You probably don't remember me. You probably never even noticed me. That's okay.</p>
+                <p>Still, I know a lot about you — not in a creepy way, but out of curiosity, admiration. I followed your journey from a distance. I watched your stories. I saw your smile again.</p>
+                <p>And though I found ways to know more about you, I had chances to say hi. I didn't. Not because I feared rejection. But because I feared breaking whatever fragile, imagined version of you I carried in my mind. And maybe a little because of my ego. Or fear of being just another forgettable face.</p>
+                <p>I know how this sounds — strange, maybe even unsettling. But I promise, this isn't some twisted love letter. It's more like… <span class="highlight">closure</span>. For me.</p>
+                <p>Because after six years, I want to stop thinking about what <span class="highlight">could've been</span> — and start making peace with what <span class="highlight">wasn't</span>.</p>
+                <p>That's why I'm writing this. To stop. To move on.</p>
+                <p>But before that, I needed to tell you this — not because I expect a reply, not because I want you to feel something, but because this is the only way I can free myself.</p>
+                <p>And maybe, just maybe — if you ever read this, and if any word even slightly touches you, drop a reply — even just a "" — just to let me feel like I made a tiny ripple in your world.</p>
+                <p>All I ever wanted was to send this thought out into the universe. I honestly don't know where I found the courage to send this. Maybe it's madness. Maybe it's healing. Or maybe it's just time.</p>
+                <p>This isn't a confession. This isn't a proposal. This is just a quiet goodbye to a story that never began — but lived in someone's heart for far too long.</p>
+                <p>Wishing you peace, freedom, and everything beautiful you deserve. And thank you — for unknowingly being part of someone's universe. Someone you may never remember, but who'll always remember you.</p>
+                <p class="signature">A stranger with a quiet heart</p>
             </div>
         </div>
     </div>
 
     <script>
-        let currentParagraph = -1;
-        const totalParagraphs = 17;
-        let sealBroken = false;
-        let allRevealed = false;
-
-        function openArchive() {
-            const introScreen = document.getElementById('introScreen');
-            introScreen.classList.add('hidden');
-            
-            // Add typing sound effect
-            playSound('typing', 0.3);
-            
-            setTimeout(() => {
-                const letter = document.getElementById('letterContainer');
-                letter.classList.add('opened');
-                
-                // Add paper sound effect
-                playSound('paper', 0.5);
-            }, 1000);
-        }
-
-        function breakSeal() {
-            if (sealBroken) return;
-            
-            const seal = document.getElementById('letterSeal');
-            seal.classList.add('broken');
-            sealBroken = true;
-            
-            // Add wax breaking sound effect
-            playSound('wax', 0.7);
-            
-            setTimeout(() => {
-                setupFirstParagraph();
-            }, 500);
-        }
-
-        function setupFirstParagraph() {
-            const firstParagraph = document.querySelectorAll('.paragraph')[0];
-            firstParagraph.classList.add('clickable');
-            
-            const hint = document.getElementById('continueHint');
-            hint.classList.add('show');
-        }
-
-        function revealParagraph(index) {
-            if (index !== currentParagraph + 1) return;
-            
-            const paragraphs = document.querySelectorAll('.paragraph');
-            const currentP = paragraphs[index];
-            
-            // Remove clickable state from current
-            currentP.classList.remove('clickable');
-            
-            // Reveal current paragraph
-            currentP.classList.add('revealed');
-            
-            // Add typing sound effect randomly
-            if (Math.random() > 0.7) {
-                playSound('typing', 0.2);
-            }
-            
-            // Update progress
-            currentParagraph = index;
-            updateProgress();
-            
-            // Setup next paragraph
-            if (index + 1 < totalParagraphs) {
-                setTimeout(() => {
-                    paragraphs[index + 1].classList.add('clickable');
-                }, 800);
-            } else {
-                // Hide hint when done
-                document.getElementById('continueHint').classList.remove('show');
-                allRevealed = true;
-                
-                // Show reply section after a delay
-                setTimeout(() => {
-                    document.getElementById('replySection').classList.add('visible');
-                }, 1000);
-            }
-        }
-
-        function updateProgress() {
-            const progress = ((currentParagraph + 1) / totalParagraphs) * 100;
-            document.getElementById('progressFill').style.width = progress + '%';
-        }
-
-        function sendReply(reply) {
-            // Play send sound
-            playSound('send', 0.5);
-            
-            // Hide buttons and show sent message
-            document.querySelector('.reply-options').style.display = 'none';
-            document.getElementById('replySent').style.display = 'block';
-            
-            // Fade out the reply section
-            setTimeout(() => {
-                document.getElementById('replySection').style.opacity = '0';
-            }, 2000);
-        }
-
-        // Sound effects
-        function playSound(type, volume) {
-            // In a real implementation, you would use actual sound files
-            // This is just a placeholder for the concept
-            console.log(`Playing ${type} sound at volume ${volume}`);
-            
-            // For a real implementation, you would use:
-            // const sound = new Audio(`sounds/${type}.mp3`);
-            // sound.volume = volume;
-            // sound.play();
-        }
-
-        // Add hover effects and interaction hints
         document.addEventListener('DOMContentLoaded', function() {
-            const paragraphs = document.querySelectorAll('.paragraph');
+            const manuletter = document.getElementById('manuletter');
+            const tones = ['warm-tone', 'cool-tone', 'sepia-tone'];
+            let currentTone = 0;
             
-            paragraphs.forEach((p, index) => {
-                p.addEventListener('mouseenter', function() {
-                    if (this.classList.contains('clickable')) {
-                        this.style.boxShadow = '0 5px 15px rgba(139, 119, 101, 0.2)';
-                    }
-                });
+            // Initial tone
+            manuletter.classList.add(tones[currentTone]);
+            
+            // Scroll event for tone shifting
+            let lastScrollPosition = 0;
+            let ticking = false;
+            
+            window.addEventListener('scroll', function() {
+                lastScrollPosition = window.scrollY;
                 
-                p.addEventListener('mouseleave', function() {
-                    this.style.boxShadow = 'none';
-                });
+                if (!ticking) {
+                    window.requestAnimationFrame(function() {
+                        updateTone(lastScrollPosition);
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
             });
-        });
-
-        // Keyboard navigation
-        document.addEventListener('keydown', function(e) {
-            if (e.code === 'Space' || e.code === 'Enter') {
-                e.preventDefault();
-                if (currentParagraph + 1 < totalParagraphs) {
-                    revealParagraph(currentParagraph + 1);
+            
+            function updateTone(scrollPos) {
+                // Calculate scroll percentage (0-1)
+                const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercent = scrollPos / scrollHeight;
+                
+                // Change tone based on scroll position
+                if (scrollPercent < 0.33) {
+                    setTone(0); // warm-tone
+                } else if (scrollPercent < 0.66) {
+                    setTone(1); // cool-tone
+                } else {
+                    setTone(2); // sepia-tone
                 }
             }
-        });
-
-        // Add ink spots dynamically for more realism
-        function addInkSpots() {
-            const letterContent = document.getElementById('letterContent');
-            for (let i = 0; i < 3; i++) {
-                const inkSpot = document.createElement('div');
-                inkSpot.className = 'ink-spot';
-                inkSpot.style.width = `${10 + Math.random() * 20}px`;
-                inkSpot.style.height = inkSpot.style.width;
-                inkSpot.style.top = `${10 + Math.random() * 80}%`;
-                inkSpot.style.left = `${10 + Math.random() * 80}%`;
-                inkSpot.style.opacity = 0.1 + Math.random() * 0.2;
-                letterContent.appendChild(inkSpot);
+            
+            function setTone(index) {
+                if (currentTone !== index) {
+                    // Remove all tone classes
+                    tones.forEach(tone => manuletter.classList.remove(tone));
+                    
+                    // Add new tone class
+                    manuletter.classList.add(tones[index]);
+                    currentTone = index;
+                }
             }
-        }
-
-        // Initialize
-        setTimeout(addInkSpots, 1000);
+            
+            // Initial scroll position check
+            updateTone(window.scrollY);
+        });
     </script>
 </body>
 </html>
