@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>anonymous letter</title>
+    <title>A Heartfelt Message</title>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         * {
@@ -77,35 +77,94 @@
             position: relative;
             padding-bottom: 15px;
             transition: color 0.3s ease;
+            text-align: center;
         }
 
         .letter-heading::after {
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 100px;
             height: 1px;
             background: #d4c4a0;
             transition: all 0.3s ease;
         }
 
-        .letter-content {
-            font-size: 18px;
-            transition: all 0.3s ease;
+        .thank-you-content {
+            text-align: center;
         }
 
-        .letter-content p {
+        .thank-you-message {
+            margin-bottom: 30px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            margin: 30px 0;
+            border-radius: 3px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .feeling-message {
+            font-style: italic;
+            color: #7a6b56;
+            margin-top: 20px;
+            font-size: 17px;
+        }
+
+        .letter-button {
+            background: transparent;
+            color: #7a6b56;
+            border: 1px solid #d4c4a0;
+            padding: 8px 15px;
+            font-family: 'Crimson Text', serif;
+            font-size: 14px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+            display: inline-block;
+        }
+
+        .letter-button:hover {
+            background: rgba(212, 196, 160, 0.1);
+            color: #5d4b36;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .original-letter {
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .original-letter .letter-content p {
             margin-bottom: 22px;
             text-align: justify;
-            transition: all 0.3s ease;
         }
 
         .highlight {
             font-style: italic;
             color: #7a6b56;
             font-weight: 600;
-            transition: all 0.3s ease;
         }
 
         .signature {
@@ -115,7 +174,6 @@
             color: #5d4b36;
             font-family: 'Playfair Display', serif;
             position: relative;
-            transition: all 0.3s ease;
         }
 
         .signature::before {
@@ -126,77 +184,6 @@
             width: 200px;
             height: 1px;
             background: linear-gradient(to left, #d4c4a0, transparent);
-            transition: all 0.3s ease;
-        }
-
-        /* Scroll-based tone classes */
-        .manuletter.warm-tone {
-            background-color: #f9f0dd;
-        }
-        .manuletter.warm-tone .letter-heading,
-        .manuletter.warm-tone .signature {
-            color: #6b4f3a;
-        }
-        .manuletter.warm-tone .letter-heading::after,
-        .manuletter.warm-tone .signature::before {
-            background: linear-gradient(to left, #c9b18d, transparent);
-        }
-
-        .manuletter.cool-tone {
-            background-color: #f5f7f0;
-        }
-        .manuletter.cool-tone .letter-heading,
-        .manuletter.cool-tone .signature {
-            color: #4a5d5c;
-        }
-        .manuletter.cool-tone .letter-heading::after,
-        .manuletter.cool-tone .signature::before {
-            background: linear-gradient(to left, #a8b8b7, transparent);
-        }
-
-        .manuletter.sepia-tone {
-            background-color: #f4e9d8;
-        }
-        .manuletter.sepia-tone .letter-heading,
-        .manuletter.sepia-tone .signature {
-            color: #5c4a36;
-        }
-        .manuletter.sepia-tone .letter-heading::after,
-        .manuletter.sepia-tone .signature::before {
-            background: linear-gradient(to left, #b8a58d, transparent);
-        }
-
-        .thank-you-content {
-            text-align: center;
-            padding: 40px 0;
-        }
-
-        .thank-you-message {
-            margin-bottom: 30px;
-            font-size: 20px;
-            line-height: 1.8;
-        }
-
-        .reveal-button {
-            background: #5d4b36;
-            color: #f8f4e8;
-            border: none;
-            padding: 12px 25px;
-            font-family: 'Crimson Text', serif;
-            font-size: 16px;
-            border-radius: 3px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 20px;
-        }
-
-        .reveal-button:hover {
-            background: #7a6b56;
-            transform: translateY(-2px);
-        }
-
-        .hidden {
-            display: none;
         }
 
         @media (max-width: 768px) {
@@ -208,52 +195,58 @@
                 font-size: 24px;
             }
             
-            .letter-content {
+            .thank-you-message, .feeling-message {
                 font-size: 16px;
             }
 
-            .thank-you-message {
-                font-size: 18px;
+            .original-letter .letter-content p {
+                font-size: 16px;
             }
         }
     </style>
 </head>
 <body>
     <div class="manuletter-container">
-        <div class="manuletter sepia-tone" id="manuletter">
-            <!-- Thank you content (shown initially) -->
-            <div id="thank-you-content" class="thank-you-content">
+        <div class="manuletter">
+            <div class="thank-you-content">
                 <h1 class="letter-heading">Thank You</h1>
                 <div class="thank-you-message">
                     <p>Thank you for reading my words and knowing this small part of me.</p>
                     <p>This letter was my way of letting go - of speaking what I couldn't say for so long.</p>
-                    <p>I appreciate you taking the time to listen to a stranger's heart.</p>
                 </div>
-                <button id="reveal-button" class="reveal-button">Read the letter again</button>
-            </div>
-            
-            <!-- Original letter content (hidden initially) -->
-            <div id="original-letter" class="hidden">
-                <h1 class="letter-heading">Dear Jani,</h1>
                 
-                <div class="letter-content">
-                    <p>There's no clue who is writing this, and I truly wish for this to stay anonymous. I'm just… <span class="highlight">a nobody</span>. A silent person who saw you once and never forgot.</p>
-                    <p>I first saw you when we were in 8th grade. Back then, my world was quiet — almost like I lived in a space only I knew. And then, you entered that world, unknowingly breaking the silence I had wrapped myself in.</p>
-                    <p>I was never the talkative type. I barely spoke to anyone — just watched people from afar, too shy to ever step closer. I've always been an introvert, someone who finds it hard to talk, even harder to express.</p>
-                    <p>And one day, a long time later, you smiled at me for no reason — while I was walking with my friend. I took it as a casual smile. But he didn't. He sparked a thought of you in my mind that never really faded.</p>
-                    <p>For the past six years, I've quietly carried that flicker. Somewhere in between, I got a beautiful opportunity to connect with you — a rare, unexpected moment, like a thread the universe dropped between us. But as always, I stayed silent. Not because I didn't want to talk, but because I didn't know how to. And I guess, neither did you.</p>
-                    <p>You probably don't remember me. You probably never even noticed me. That's okay.</p>
-                    <p>Still, I know a lot about you — not in a creepy way, but out of curiosity, admiration. I followed your journey from a distance. I watched your stories. I saw your smile again.</p>
-                    <p>And though I found ways to know more about you, I had chances to say hi. I didn't. Not because I feared rejection. But because I feared breaking whatever fragile, imagined version of you I carried in my mind. And maybe a little because of my ego. Or fear of being just another forgettable face.</p>
-                    <p>I know how this sounds — strange, maybe even unsettling. But I promise, this isn't some twisted love letter. It's more like… <span class="highlight">closure</span>. For me.</p>
-                    <p>Because after six years, I want to stop thinking about what <span class="highlight">could've been</span> — and start making peace with what <span class="highlight">wasn't</span>.</p>
-                    <p>That's why I'm writing this. To stop. To move on.</p>
-                    <p>But before that, I needed to tell you this — not because I expect a reply, not because I want you to feel something, but because this is the only way I can free myself.</p>
-                    <p>And maybe, just maybe — if you ever read this, and if any word even slightly touches you, drop a reply — even just a "" — just to let me feel like I made a tiny ripple in your world.</p>
-                    <p>All I ever wanted was to send this thought out into the universe. I honestly don't know where I found the courage to send this. Maybe it's madness. Maybe it's healing. Or maybe it's just time.</p>
-                    <p>This isn't a confession. This isn't a proposal. This is just a quiet goodbye to a story that never began — but lived in someone's heart for far too long.</p>
-                    <p>Wishing you peace, freedom, and everything beautiful you deserve. And thank you — for unknowingly being part of someone's universe. Someone you may never remember, but who'll always remember you.</p>
-                    <p class="signature">A stranger with a quiet heart</p>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/t2VGpqq2-I8?start=14&autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                
+                <div class="feeling-message">
+                    <p>This is how I feel now - happy, at peace, and finally free.</p>
+                </div>
+
+                <button id="letter-button" class="letter-button">Read the Original Letter</button>
+                
+                <div id="original-letter" class="original-letter hidden">
+                    <h1 class="letter-heading">Dear Jani,</h1>
+                    
+                    <div class="letter-content">
+                        <p>There's no clue who is writing this, and I truly wish for this to stay anonymous. I'm just… <span class="highlight">a nobody</span>. A silent person who saw you once and never forgot.</p>
+                        <p>I first saw you when we were in 8th grade. Back then, my world was quiet — almost like I lived in a space only I knew. And then, you entered that world, unknowingly breaking the silence I had wrapped myself in.</p>
+                        <p>I was never the talkative type. I barely spoke to anyone — just watched people from afar, too shy to ever step closer. I've always been an introvert, someone who finds it hard to talk, even harder to express.</p>
+                        <p>And one day, a long time later, you smiled at me for no reason — while I was walking with my friend. I took it as a casual smile. But he didn't. He sparked a thought of you in my mind that never really faded.</p>
+                        <p>For the past six years, I've quietly carried that flicker. Somewhere in between, I got a beautiful opportunity to connect with you — a rare, unexpected moment, like a thread the universe dropped between us. But as always, I stayed silent. Not because I didn't want to talk, but because I didn't know how to. And I guess, neither did you.</p>
+                        <p>You probably don't remember me. You probably never even noticed me. That's okay.</p>
+                        <p>Still, I know a lot about you — not in a creepy way, but out of curiosity, admiration. I followed your journey from a distance. I watched your stories. I saw your smile again.</p>
+                        <p>And though I found ways to know more about you, I had chances to say hi. I didn't. Not because I feared rejection. But because I feared breaking whatever fragile, imagined version of you I carried in my mind. And maybe a little because of my ego. Or fear of being just another forgettable face.</p>
+                        <p>I know how this sounds — strange, maybe even unsettling. But I promise, this isn't some twisted love letter. It's more like… <span class="highlight">closure</span>. For me.</p>
+                        <p>Because after six years, I want to stop thinking about what <span class="highlight">could've been</span> — and start making peace with what <span class="highlight">wasn't</span>.</p>
+                        <p>That's why I'm writing this. To stop. To move on.</p>
+                        <p>But before that, I needed to tell you this — not because I expect a reply, not because I want you to feel something, but because this is the only way I can free myself.</p>
+                        <p>And maybe, just maybe — if you ever read this, and if any word even slightly touches you, drop a reply — even just a "" — just to let me feel like I made a tiny ripple in your world.</p>
+                        <p>All I ever wanted was to send this thought out into the universe. I honestly don't know where I found the courage to send this. Maybe it's madness. Maybe it's healing. Or maybe it's just time.</p>
+                        <p>This isn't a confession. This isn't a proposal. This is just a quiet goodbye to a story that never began — but lived in someone's heart for far too long.</p>
+                        <p>Wishing you peace, freedom, and everything beautiful you deserve. And thank you — for unknowingly being part of someone's universe. Someone you may never remember, but who'll always remember you.</p>
+                        <p class="signature">A stranger with a quiet heart</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -261,68 +254,18 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const manuletter = document.getElementById('manuletter');
-            const thankYouContent = document.getElementById('thank-you-content');
+            const letterButton = document.getElementById('letter-button');
             const originalLetter = document.getElementById('original-letter');
-            const revealButton = document.getElementById('reveal-button');
-            const tones = ['warm-tone', 'cool-tone', 'sepia-tone'];
-            let currentTone = 2; // Start with sepia for thank you
             
-            // Set initial tone
-            manuletter.classList.add(tones[currentTone]);
-            
-            // Button click event to reveal original letter
-            revealButton.addEventListener('click', function() {
-                thankYouContent.classList.add('hidden');
-                originalLetter.classList.remove('hidden');
-                
-                // Reset scroll position
-                window.scrollTo(0, 0);
-            });
-            
-            // Scroll event for tone shifting (only when original letter is visible)
-            let lastScrollPosition = 0;
-            let ticking = false;
-            
-            window.addEventListener('scroll', function() {
-                if (originalLetter.classList.contains('hidden')) return;
-                
-                lastScrollPosition = window.scrollY;
-                
-                if (!ticking) {
-                    window.requestAnimationFrame(function() {
-                        updateTone(lastScrollPosition);
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
-            });
-            
-            function updateTone(scrollPos) {
-                // Calculate scroll percentage (0-1)
-                const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-                const scrollPercent = scrollPos / scrollHeight;
-                
-                // Change tone based on scroll position
-                if (scrollPercent < 0.33) {
-                    setTone(0); // warm-tone
-                } else if (scrollPercent < 0.66) {
-                    setTone(1); // cool-tone
+            letterButton.addEventListener('click', function() {
+                if (originalLetter.classList.contains('hidden')) {
+                    originalLetter.classList.remove('hidden');
+                    letterButton.textContent = 'Hide Letter';
                 } else {
-                    setTone(2); // sepia-tone
+                    originalLetter.classList.add('hidden');
+                    letterButton.textContent = 'Read the Original Letter';
                 }
-            }
-            
-            function setTone(index) {
-                if (currentTone !== index) {
-                    // Remove all tone classes
-                    tones.forEach(tone => manuletter.classList.remove(tone));
-                    
-                    // Add new tone class
-                    manuletter.classList.add(tones[index]);
-                    currentTone = index;
-                }
-            }
+            });
         });
     </script>
 </body>
