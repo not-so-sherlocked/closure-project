@@ -166,6 +166,39 @@
             background: linear-gradient(to left, #b8a58d, transparent);
         }
 
+        .thank-you-content {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .thank-you-message {
+            margin-bottom: 30px;
+            font-size: 20px;
+            line-height: 1.8;
+        }
+
+        .reveal-button {
+            background: #5d4b36;
+            color: #f8f4e8;
+            border: none;
+            padding: 12px 25px;
+            font-family: 'Crimson Text', serif;
+            font-size: 16px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .reveal-button:hover {
+            background: #7a6b56;
+            transform: translateY(-2px);
+        }
+
+        .hidden {
+            display: none;
+        }
+
         @media (max-width: 768px) {
             .manuletter {
                 padding: 40px 30px;
@@ -178,32 +211,50 @@
             .letter-content {
                 font-size: 16px;
             }
+
+            .thank-you-message {
+                font-size: 18px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="manuletter-container">
-        <div class="manuletter" id="manuletter">
-            <h1 class="letter-heading">Dear Jani,</h1>
+        <div class="manuletter sepia-tone" id="manuletter">
+            <!-- Thank you content (shown initially) -->
+            <div id="thank-you-content" class="thank-you-content">
+                <h1 class="letter-heading">Thank You</h1>
+                <div class="thank-you-message">
+                    <p>Thank you for reading my words and knowing this small part of me.</p>
+                    <p>This letter was my way of letting go - of speaking what I couldn't say for so long.</p>
+                    <p>I appreciate you taking the time to listen to a stranger's heart.</p>
+                </div>
+                <button id="reveal-button" class="reveal-button">Read the letter again</button>
+            </div>
             
-            <div class="letter-content">
-                <p>There's no clue who is writing this, and I truly wish for this to stay anonymous. I'm just… <span class="highlight">a nobody</span>. A silent person who saw you once and never forgot.</p>
-                <p>I first saw you when we were in 8th grade. Back then, my world was quiet — almost like I lived in a space only I knew. And then, you entered that world, unknowingly breaking the silence I had wrapped myself in.</p>
-                <p>I was never the talkative type. I barely spoke to anyone — just watched people from afar, too shy to ever step closer. I've always been an introvert, someone who finds it hard to talk, even harder to express.</p>
-                <p>And one day, a long time later, you smiled at me for no reason — while I was walking with my friend. I took it as a casual smile. But he didn't. He sparked a thought of you in my mind that never really faded.</p>
-                <p>For the past six years, I've quietly carried that flicker. Somewhere in between, I got a beautiful opportunity to connect with you — a rare, unexpected moment, like a thread the universe dropped between us. But as always, I stayed silent. Not because I didn't want to talk, but because I didn't know how to. And I guess, neither did you.</p>
-                <p>You probably don't remember me. You probably never even noticed me. That's okay.</p>
-                <p>Still, I know a lot about you — not in a creepy way, but out of curiosity, admiration. I followed your journey from a distance. I watched your stories. I saw your smile again.</p>
-                <p>And though I found ways to know more about you, I had chances to say hi. I didn't. Not because I feared rejection. But because I feared breaking whatever fragile, imagined version of you I carried in my mind. And maybe a little because of my ego. Or fear of being just another forgettable face.</p>
-                <p>I know how this sounds — strange, maybe even unsettling. But I promise, this isn't some twisted love letter. It's more like… <span class="highlight">closure</span>. For me.</p>
-                <p>Because after six years, I want to stop thinking about what <span class="highlight">could've been</span> — and start making peace with what <span class="highlight">wasn't</span>.</p>
-                <p>That's why I'm writing this. To stop. To move on.</p>
-                <p>But before that, I needed to tell you this — not because I expect a reply, not because I want you to feel something, but because this is the only way I can free myself.</p>
-                <p>And maybe, just maybe — if you ever read this, and if any word even slightly touches you, drop a reply — even just a "" — just to let me feel like I made a tiny ripple in your world.</p>
-                <p>All I ever wanted was to send this thought out into the universe. I honestly don't know where I found the courage to send this. Maybe it's madness. Maybe it's healing. Or maybe it's just time.</p>
-                <p>This isn't a confession. This isn't a proposal. This is just a quiet goodbye to a story that never began — but lived in someone's heart for far too long.</p>
-                <p>Wishing you peace, freedom, and everything beautiful you deserve. And thank you — for unknowingly being part of someone's universe. Someone you may never remember, but who'll always remember you.</p>
-                <p class="signature">A stranger with a quiet heart</p>
+            <!-- Original letter content (hidden initially) -->
+            <div id="original-letter" class="hidden">
+                <h1 class="letter-heading">Dear Jani,</h1>
+                
+                <div class="letter-content">
+                    <p>There's no clue who is writing this, and I truly wish for this to stay anonymous. I'm just… <span class="highlight">a nobody</span>. A silent person who saw you once and never forgot.</p>
+                    <p>I first saw you when we were in 8th grade. Back then, my world was quiet — almost like I lived in a space only I knew. And then, you entered that world, unknowingly breaking the silence I had wrapped myself in.</p>
+                    <p>I was never the talkative type. I barely spoke to anyone — just watched people from afar, too shy to ever step closer. I've always been an introvert, someone who finds it hard to talk, even harder to express.</p>
+                    <p>And one day, a long time later, you smiled at me for no reason — while I was walking with my friend. I took it as a casual smile. But he didn't. He sparked a thought of you in my mind that never really faded.</p>
+                    <p>For the past six years, I've quietly carried that flicker. Somewhere in between, I got a beautiful opportunity to connect with you — a rare, unexpected moment, like a thread the universe dropped between us. But as always, I stayed silent. Not because I didn't want to talk, but because I didn't know how to. And I guess, neither did you.</p>
+                    <p>You probably don't remember me. You probably never even noticed me. That's okay.</p>
+                    <p>Still, I know a lot about you — not in a creepy way, but out of curiosity, admiration. I followed your journey from a distance. I watched your stories. I saw your smile again.</p>
+                    <p>And though I found ways to know more about you, I had chances to say hi. I didn't. Not because I feared rejection. But because I feared breaking whatever fragile, imagined version of you I carried in my mind. And maybe a little because of my ego. Or fear of being just another forgettable face.</p>
+                    <p>I know how this sounds — strange, maybe even unsettling. But I promise, this isn't some twisted love letter. It's more like… <span class="highlight">closure</span>. For me.</p>
+                    <p>Because after six years, I want to stop thinking about what <span class="highlight">could've been</span> — and start making peace with what <span class="highlight">wasn't</span>.</p>
+                    <p>That's why I'm writing this. To stop. To move on.</p>
+                    <p>But before that, I needed to tell you this — not because I expect a reply, not because I want you to feel something, but because this is the only way I can free myself.</p>
+                    <p>And maybe, just maybe — if you ever read this, and if any word even slightly touches you, drop a reply — even just a "" — just to let me feel like I made a tiny ripple in your world.</p>
+                    <p>All I ever wanted was to send this thought out into the universe. I honestly don't know where I found the courage to send this. Maybe it's madness. Maybe it's healing. Or maybe it's just time.</p>
+                    <p>This isn't a confession. This isn't a proposal. This is just a quiet goodbye to a story that never began — but lived in someone's heart for far too long.</p>
+                    <p>Wishing you peace, freedom, and everything beautiful you deserve. And thank you — for unknowingly being part of someone's universe. Someone you may never remember, but who'll always remember you.</p>
+                    <p class="signature">A stranger with a quiet heart</p>
+                </div>
             </div>
         </div>
     </div>
@@ -211,17 +262,31 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const manuletter = document.getElementById('manuletter');
+            const thankYouContent = document.getElementById('thank-you-content');
+            const originalLetter = document.getElementById('original-letter');
+            const revealButton = document.getElementById('reveal-button');
             const tones = ['warm-tone', 'cool-tone', 'sepia-tone'];
-            let currentTone = 0;
+            let currentTone = 2; // Start with sepia for thank you
             
-            // Initial tone
+            // Set initial tone
             manuletter.classList.add(tones[currentTone]);
             
-            // Scroll event for tone shifting
+            // Button click event to reveal original letter
+            revealButton.addEventListener('click', function() {
+                thankYouContent.classList.add('hidden');
+                originalLetter.classList.remove('hidden');
+                
+                // Reset scroll position
+                window.scrollTo(0, 0);
+            });
+            
+            // Scroll event for tone shifting (only when original letter is visible)
             let lastScrollPosition = 0;
             let ticking = false;
             
             window.addEventListener('scroll', function() {
+                if (originalLetter.classList.contains('hidden')) return;
+                
                 lastScrollPosition = window.scrollY;
                 
                 if (!ticking) {
@@ -258,9 +323,6 @@
                     currentTone = index;
                 }
             }
-            
-            // Initial scroll position check
-            updateTone(window.scrollY);
         });
     </script>
 </body>
