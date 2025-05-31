@@ -163,8 +163,13 @@
 
         .highlight {
             font-style: italic;
-            color: #7a6b56;
+            color: #4f4639;
             font-weight: 600;
+        }
+        .highlight-heading {
+            font-style: bold;
+            color: #567a64;
+            font-weight: 1800;
         }
 
         .signature {
@@ -203,27 +208,61 @@
                 font-size: 16px;
             }
         }
+        .letter-button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center; /* or flex-start / flex-end depending on your layout */
+
+}
+
+.new-badge-btn {
+    position: relative;
+}
+.timestamp {
+    font-family: 'Crimson Text', serif;
+    font-size: 14px;
+    color: #7a6b56;
+    opacity: 0.8;
+    margin-bottom: 15px;
+}
+
+.badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #d4c4a0;
+    color: #5d4b36;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-family: 'Crimson Text', serif;
+    font-weight: bold;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
     </style>
 </head>
 <body>
     <div class="manuletter-container">
         <div class="manuletter">
             <div class="thank-you-content">
-                <h1 class="letter-heading">Thank You</h1>
+                <h1 class="letter-heading">closure Project</h1>
                 <div class="thank-you-message">
-                    <p>Thank you for reading my words and knowing this small part of me.</p>
-                    <p>This letter was my way of letting go - of speaking what I couldn't say for so long.</p>
-                </div>
-                
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/t2VGpqq2-I8?start=14&autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                
-                <div class="feeling-message">
-                    <p>This is how I feel now - happy, at peace, and finally free.</p>
+                    <p>The Closure Project was a deeply personal journey to express long-held feelings in silence.</p>
+                    <p>It wasn’t about getting a reply, but about finding peace by speaking unspoken truths.</p>
+                    <p>A heartfelt letter marked the end of years of quiet emotions and inner conflict.</p>
+                    <p>It closed a chapter with grace, healing, and the courage to finally move forward.</p>
+
                 </div>
 
+              <div class="letter-button-group">
                 <button id="letter-button" class="letter-button">Read the Original Letter</button>
+                <button id="one-week-button" class="letter-button new-badge-btn">Week After Closure Project
+                    <span class="badge">New</span>
+                </button>
+                <button id="days-after-button" class="letter-button">Day After</button>
+            </div>
+
                 
                 <div id="original-letter" class="original-letter hidden">
                     <h1 class="letter-heading">Dear Jani,</h1>
@@ -246,8 +285,63 @@
                         <p>This isn't a confession. This isn't a proposal. This is just a quiet goodbye to a story that never began — but lived in someone's heart for far too long.</p>
                         <p>Wishing you peace, freedom, and everything beautiful you deserve. And thank you — for unknowingly being part of someone's universe. Someone you may never remember, but who'll always remember you.</p>
                         <p class="signature">A stranger with a quiet heart</p>
+                        <p class="timestamp" style="text-align: right; margin-top: 40px;">May 24, 2025</p>
+
                     </div>
                 </div>
+                 
+                <div id="week-after-content" class="original-letter hidden">
+                    <h1 class="letter-heading">A week after closure</h1>
+                    <div class="letter-content">
+                        <p>Last Sunday, I sent you the letter.</p>
+                        <p>I called the entire process the <span class="highlight-heading">Closure Project</span> — because that was its only purpose: to let you know how I felt and make a tiny ripple in your world before closing a long chapter of my life.</p>
+                        <p>And yes, the project was successfully completed.
+                        I finally closed that chapter with peace.
+                        What I didn’t expect was the kind of response you gave — calm, kind, and graceful. I’m truly grateful for that. I never imagined a girl would handle it that way.</p>
+                                                <p>                            I know you probably don’t remember me, and that’s okay. I never expected you to.
+                           In my mind, I always thought you were different — not just another random person. For a while, I thought that was just my imagination. But now, after this, I know you really are a 10/10 — even though our conversations were brief and limited. 
+                        </p>
+                        <p>
+                            Since the Closure Project, I’ve been feeling a sense of peace I hadn’t felt in years.
+                            My thoughts are clearer. My goals feel brighter. I’ve been more motivated and productive every single day.
+                            As I once said — you were a flicker in my thoughts.
+                            Now, that flicker has become a stone — a rare, precious one that I’ll keep as an ideal until I meet something that feels like that again.
+                                                    </p>
+                        <p>
+                            Even though I told you goodbye forever and truly moved on, I’ll admit — there’s still a little room left that hopes for you.
+                        </p>
+                        <p>
+                            If someday you feel anything for me — anything real — all you need to do is knock.
+                            Until I find someone who feels like you, I’ll quietly hold that door open.
+
+                            Once again, thank you for being part of my story — unknowingly.
+                            Wishing you all the luck, love, and success in your life.
+                        </p>
+                        <p class="timestamp" style="text-align: right; margin-top: 40px;">May 31, 2025</p>
+                    </div>
+
+                    </div>
+                    
+                    <div id="day-after-content" class="original-letter
+                    hidden">
+                <h1 class="letter-heading">Thank You</h1>
+                <div class="thank-you-content">
+                    <p>Thank you for reading my words and knowing this small part of me.</p>
+                    <p>This letter was my way of letting go - of speaking what I couldn't say for so long.</p>
+                </div>
+                
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/t2VGpqq2-I8?start=14&autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                
+                <div class="feeling-message">
+                    <p>This is how I feel now - happy, at peace, and finally free.</p>
+                </div>
+                <p class="timestamp" style="text-align: right; margin-top: 40px;">May 25, 2025</p>
+                    </div>
+
+                </div>
+
             </div>
         </div>
     </div>
@@ -256,7 +350,30 @@
         document.addEventListener('DOMContentLoaded', function() {
             const letterButton = document.getElementById('letter-button');
             const originalLetter = document.getElementById('original-letter');
-            
+            const weekAfterButton = document.getElementById('one-week-button');
+            const weekAfterContent = document.getElementById('week-after-content');
+            const daysAfterButton = document.getElementById('days-after-button');
+            const dayAfterContent = document.getElementById('day-after-content');
+
+            daysAfterButton.addEventListener('click', function() {
+                if (dayAfterContent.classList.contains('hidden')) {
+                    dayAfterContent.classList.remove('hidden');
+                    daysAfterButton.textContent = 'Hide Day After Content';
+                } else {
+                    dayAfterContent.classList.add('hidden');
+                    daysAfterButton.textContent = 'day after';
+                }
+            });
+
+            weekAfterButton.addEventListener('click', function() {
+                if (weekAfterContent.classList.contains('hidden')) {
+                    weekAfterContent.classList.remove('hidden');
+                    weekAfterButton.textContent = 'Hide Week After Content';
+                } else {
+                    weekAfterContent.classList.add('hidden');
+                    weekAfterButton.textContent = 'week after closure project';
+                }
+            });
             letterButton.addEventListener('click', function() {
                 if (originalLetter.classList.contains('hidden')) {
                     originalLetter.classList.remove('hidden');
