@@ -3,248 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Heartfelt Message</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Badeen+Display&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+
+    <title>Closure Project</title>
+     <link rel="icon" href="favicon.png" type="image/png">
+
+  <!-- Optional: favicon for different sizes -->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: #e8e1d1;
-            min-height: 100vh;
-            font-family: 'Crimson Text', serif;
-            color: #3a3226;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px 20px;
-            line-height: 1.6;
-            background-image: url('https://www.transparenttextures.com/patterns/old-map.png');
-        }
-
-        .manuletter-container {
-            max-width: 800px;
-            width: 100%;
-            position: relative;
-            padding: 20px 0;
-        }
-
-        .manuletter {
-            background: #f8f4e8;
-            padding: 60px 50px;
-            border-radius: 2px;
-            box-shadow: 
-                0 2px 10px rgba(0, 0, 0, 0.1),
-                inset 0 0 100px rgba(214, 191, 157, 0.3);
-            position: relative;
-            border: 1px solid #d8d1c0;
-            transform-origin: center top;
-            transition: all 0.5s ease;
-            background-image: url('https://www.transparenttextures.com/patterns/rice-paper-3.png');
-            background-blend-mode: multiply;
-        }
-
-        /* Aging effects */
-        .manuletter::before {
-            content: '';
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            right: 10px;
-            bottom: 10px;
-            border: 1px solid rgba(168, 148, 107, 0.2);
-            pointer-events: none;
-        }
-
-        .manuletter::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 15px;
-            background: linear-gradient(135deg, transparent 95%, rgba(0,0,0,0.05) 96%, transparent 97%);
-        }
-
-        .letter-heading {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            margin-bottom: 30px;
-            color: #5d4b36;
-            position: relative;
-            padding-bottom: 15px;
-            transition: color 0.3s ease;
-            text-align: center;
-        }
-
-        .letter-heading::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 1px;
-            background: #d4c4a0;
-            transition: all 0.3s ease;
-        }
-
-        .thank-you-content {
-            text-align: center;
-        }
-
-        .thank-you-message {
-            margin-bottom: 30px;
-            font-size: 18px;
-            line-height: 1.8;
-        }
-
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            height: 0;
-            overflow: hidden;
-            margin: 30px 0;
-            border-radius: 3px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .feeling-message {
-            font-style: italic;
-            color: #7a6b56;
-            margin-top: 20px;
-            font-size: 17px;
-        }
-
-        .letter-button {
-            background: transparent;
-            color: #7a6b56;
-            border: 1px solid #d4c4a0;
-            padding: 8px 15px;
-            font-family: 'Crimson Text', serif;
-            font-size: 14px;
-            border-radius: 3px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 30px;
-            display: inline-block;
-        }
-
-        .letter-button:hover {
-            background: rgba(212, 196, 160, 0.1);
-            color: #5d4b36;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .original-letter {
-            margin-top: 40px;
-            text-align: left;
-        }
-
-        .original-letter .letter-content p {
-            margin-bottom: 22px;
-            text-align: justify;
-        }
-
-        .highlight {
-            font-style: italic;
-            color: #4f4639;
-            font-weight: 600;
-        }
-        .highlight-heading {
-            font-style: bold;
-            color: #567a64;
-            font-weight: 1800;
-        }
-
-        .signature {
-            text-align: right;
-            font-style: italic;
-            margin-top: 50px;
-            color: #5d4b36;
-            font-family: 'Playfair Display', serif;
-            position: relative;
-        }
-
-        .signature::before {
-            content: '';
-            position: absolute;
-            top: -15px;
-            right: 0;
-            width: 200px;
-            height: 1px;
-            background: linear-gradient(to left, #d4c4a0, transparent);
-        }
-
-        @media (max-width: 768px) {
-            .manuletter {
-                padding: 40px 30px;
-            }
-            
-            .letter-heading {
-                font-size: 24px;
-            }
-            
-            .thank-you-message, .feeling-message {
-                font-size: 16px;
-            }
-
-            .original-letter .letter-content p {
-                font-size: 16px;
-            }
-        }
-        .letter-button-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center; /* or flex-start / flex-end depending on your layout */
-
-}
-
-.new-badge-btn {
-    position: relative;
-}
-.timestamp {
-    font-family: 'Crimson Text', serif;
-    font-size: 14px;
-    color: #7a6b56;
-    opacity: 0.8;
-    margin-bottom: 15px;
-}
-
-.badge {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    background-color: #d4c4a0;
-    color: #5d4b36;
-    font-size: 10px;
-    padding: 2px 6px;
-    border-radius: 10px;
-    font-family: 'Crimson Text', serif;
-    font-weight: bold;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" ></script>
 </head>
 <body>
     <div class="manuletter-container">
+        <div class="audio-wrapper">
+    <iframe 
+        id="yt-audio" 
+        width="0" 
+        height="0" 
+        src="https://youtu.be/TdrL3QxjyVw?si=PhAOkTeSFdnUEm_K?autoplay=1&loop=1&playlist=UfcAVejslrU&controls=0&modestbranding=1&showinfo=0" 
+        frameborder="0" 
+        allow="autoplay"
+    ></iframe>
+    </div>
         <div class="manuletter">
+            
+
             <div class="thank-you-content">
                 <h1 class="letter-heading">closure Project</h1>
                 <div class="thank-you-message">
@@ -298,7 +89,7 @@
                         <p>And yes, the project was successfully completed.
                         I finally closed that chapter with peace.
                         What I didn’t expect was the kind of response you gave — calm, kind, and graceful. I’m truly grateful for that. I never imagined a girl would handle it that way.</p>
-                                                <p>                            I know you probably don’t remember me, and that’s okay. I never expected you to.
+                                                <p>                            
                            In my mind, I always thought you were different — not just another random person. For a while, I thought that was just my imagination. But now, after this, I know you really are a 10/10 — even though our conversations were brief and limited. 
                         </p>
                         <p>
@@ -343,47 +134,36 @@
                 </div>
 
             </div>
+            <div class="thought-cloud" id="thoughtCloud">
+            <button class="cloud-button" id="cloudBtn">
+                <svg class="cloud-svg" width="200" height="200" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="cloud-svg" preserveAspectRatio="xMidYMid meet">
+    <!-- Main cloud shape -->
+    <path d="M120.44 51.23a29.87 29.87 0 0 0 2.96-13.02c0-16.6-13.45-30.05-30.05-30.05c-3.89 0-7.61.75-11.03 2.1C77.95 6.45 72.22 4.1 66 4.1c-7.6 0-14.4 3.4-18.9 8.7c-3.5-1.9-7.5-3-11.7-3c-13.4.1-24.3 10.9-24.3 24.3c0 5 1.5 9.7 4.2 13.6c-5 4-8.5 9.9-9.2 16.8C4.8 77.9 14.7 90 28.3 91.3c3.2.3 6.2 0 9.1-.8c1.1 10.7 10.1 19 21.1 19c7 0 13.2-3.4 17-8.6c3.6 2.8 8.1 4.6 13.1 4.6c11 0 20.1-8.5 20.9-19.2C118 82.4 124 73.8 124 63.8c0-4.59-1.33-8.92-3.56-12.57z" fill="#59cf4c" stroke="#66b3ff" stroke-width="2" class="cloud-path" />
+
+    <!-- Small thought bubbles -->
+     
+    <path  d="M24.3 97.3c-4.5-.5-8.5 2.8-9 7.3s2.8 8.5 7.3 8.9c4.5.5 8.5-2.8 9-7.3s-2.8-8.5-7.3-8.9z" fill="#e0f7ff" stroke="#66b3ff" stroke-width="2" class="cloud-bubble-1" />
+    <path d="M9 114.3c-3-.3-5.7 1.9-6 4.9s1.9 5.6 4.9 5.9s5.7-1.9 6-4.9c.3-2.9-1.9-5.6-4.9-5.9z" fill="#e0f7ff" stroke="#66b3ff" stroke-width="2" class="cloud-bubble-2" />
+
+    <!-- Optional text inside SVG -->
+<text x="50%" y="35%" text-anchor="middle" dominant-baseline="middle"
+      font-size="18" fill="#5d4b36" font-family="'Anton', sans-serif" font-weight="400">
+  <tspan x="50%" dy="0">Random</tspan>
+  <tspan x="50%" dy="1.4em">Thoughts</tspan>
+</text>
+  </svg>
+            </button>
+          <div class="popup" id="popup">
+  <h2>Hello from the Cloud!</h2>
+  <p>This is your random thought bubble 💭. Add your own ideas here.</p>
+</div>
+
+    </div>
         </div>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const letterButton = document.getElementById('letter-button');
-            const originalLetter = document.getElementById('original-letter');
-            const weekAfterButton = document.getElementById('one-week-button');
-            const weekAfterContent = document.getElementById('week-after-content');
-            const daysAfterButton = document.getElementById('days-after-button');
-            const dayAfterContent = document.getElementById('day-after-content');
 
-            daysAfterButton.addEventListener('click', function() {
-                if (dayAfterContent.classList.contains('hidden')) {
-                    dayAfterContent.classList.remove('hidden');
-                    daysAfterButton.textContent = 'Hide Day After Content';
-                } else {
-                    dayAfterContent.classList.add('hidden');
-                    daysAfterButton.textContent = 'day after';
-                }
-            });
-
-            weekAfterButton.addEventListener('click', function() {
-                if (weekAfterContent.classList.contains('hidden')) {
-                    weekAfterContent.classList.remove('hidden');
-                    weekAfterButton.textContent = 'Hide Week After Content';
-                } else {
-                    weekAfterContent.classList.add('hidden');
-                    weekAfterButton.textContent = 'week after closure project';
-                }
-            });
-            letterButton.addEventListener('click', function() {
-                if (originalLetter.classList.contains('hidden')) {
-                    originalLetter.classList.remove('hidden');
-                    letterButton.textContent = 'Hide Letter';
-                } else {
-                    originalLetter.classList.add('hidden');
-                    letterButton.textContent = 'Read the Original Letter';
-                }
-            });
-        });
     </script>
 </body>
 </html>
