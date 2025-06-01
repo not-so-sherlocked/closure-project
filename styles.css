@@ -1,0 +1,479 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #e8e1d1;
+            min-height: 100vh;
+            font-family: 'Crimson Text', serif;
+            color: #3a3226;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            line-height: 1.6;
+            background-image: url('https://www.transparenttextures.com/patterns/old-map.png');
+        }
+
+        .manuletter-container {
+            max-width: 800px;
+            width: 100%;
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .manuletter {
+            background: #f8f4e8;
+            padding: 60px 50px;
+            border-radius: 2px;
+            box-shadow: 
+                0 2px 10px rgba(0, 0, 0, 0.1),
+                inset 0 0 100px rgba(214, 191, 157, 0.3);
+            position: relative;
+            border: 1px solid #d8d1c0;
+            transform-origin: center top;
+            transition: all 0.5s ease;
+            background-image: url('https://www.transparenttextures.com/patterns/rice-paper-3.png');
+            background-blend-mode: multiply;
+        }
+
+        /* Aging effects */
+        .manuletter::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px solid #a8946b33;
+            pointer-events: none;
+        }
+
+        .manuletter::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 15px;
+            background: linear-gradient(135deg, transparent 95%, rgba(0,0,0,0.05) 96%, transparent 97%);
+        }
+
+        .letter-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #5d4b36;
+            position: relative;
+            padding-bottom: 15px;
+            transition: color 0.3s ease;
+            text-align: center;
+        }
+
+        .letter-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 1px;
+            background: #d4c4a0;
+            transition: all 0.3s ease;
+        }
+
+        .thank-you-content {
+            text-align: center;
+        }
+
+        .thank-you-message {
+            margin-bottom: 30px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            margin: 30px 0;
+            border-radius: 3px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .feeling-message {
+            font-style: italic;
+            color: #7a6b56;
+            margin-top: 20px;
+            font-size: 17px;
+        }
+        .button-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        margin-top: 30px;
+        }
+
+        .letter-button {
+            max-width: 300px;
+            width: 90%;
+            background: transparent;
+            color: #7a6b56;
+            border: 1px solid #d4c4a0;
+            padding: 8px 15px;
+            font-family: 'Crimson Text', serif;
+            font-size: 14px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+            display: inline-block;
+        }
+
+        .letter-button:hover {
+            background: rgba(212, 196, 160, 0.1);
+            color: #5d4b36;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .original-letter {
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .original-letter .letter-content p {
+            margin-bottom: 22px;
+            text-align: justify;
+        }
+
+        .highlight {
+            font-style: italic;
+            color: #4f4639;
+            font-weight: 600;
+        }
+        .highlight-heading {
+            font-style: bold;
+            color: #567a64;
+            font-weight: 1800;
+        }
+
+        .signature {
+            text-align: right;
+            font-style: italic;
+            margin-top: 50px;
+            color: #5d4b36;
+            font-family: 'Playfair Display', serif;
+            position: relative;
+        }
+
+        .signature::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            right: 0;
+            width: 200px;
+            height: 1px;
+            background: linear-gradient(to left, #d4c4a0, transparent);
+        }
+
+        @media (max-width: 768px) {
+            .manuletter {
+                padding: 40px 30px;
+            }
+            
+            .letter-heading {
+                font-size: 24px;
+            }
+            
+            .thank-you-message, .feeling-message {
+                font-size: 16px;
+            }
+
+            .original-letter .letter-content p {
+                font-size: 16px;
+            }
+        }
+        .letter-button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center; /* or flex-start / flex-end depending on your layout */
+
+}
+
+.new-badge-btn {
+    position: relative;
+}
+.timestamp {
+    font-family: 'Crimson Text', serif;
+    font-size: 14px;
+    color: #7a6b56;
+    opacity: 0.8;
+    margin-bottom: 15px;
+}
+
+.badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #d4c4a0;
+    color: #5d4b36;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-family: 'Crimson Text', serif;
+    font-weight: bold;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.audio-wrapper {
+  display: none; /* completely hides it from layout */
+}
+/* Enhanced Thought Cloud Component */
+        .thought-cloud {
+            fill: #567a64;
+            position: absolute;
+            top: -25px;
+            right: -25px;
+            width: 70px;
+            height: 70px;
+            cursor: pointer;
+            z-index: 100;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
+        }
+
+        .thought-cloud:hover {
+            transform: scale(1.15) rotate(5deg);
+            filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.25));
+        }
+
+        .thought-cloud:active {
+            transform: scale(0.95);
+        }
+
+        /* Cloud SVG with animated drawing effect */
+        .cloud-svg {
+            fill:#f88913;
+            width: 150%;
+            height: 150%;
+            opacity: 100%;
+            animation: fadeInDraw 2s ease-out forwards;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
+        }
+
+        .cloud-path {
+            fill: rgba(255, 255, 255, 0.95);
+            stroke: #d4c4a0;
+            stroke-width: 2;
+            stroke-dasharray: 300;
+            stroke-dashoffset: 300;
+            animation: drawPath 2s ease-out forwards;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        }
+
+        .cloud-bubble-1,
+        .cloud-bubble-2 {
+            fill: rgba(255, 255, 255, 0.9);
+            stroke: #d4c4a0;
+            stroke-width: 1.5;
+            opacity: 0;
+            animation: bubbleAppear 0.6s ease-out 1.5s forwards;
+        }
+
+        /* Emoji with pulse animation */
+        .thought-emoji {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            opacity: 0;
+            animation: emojiPulse 1s ease-out 2.2s forwards;
+        }
+
+        /* Floating particles effect */
+        .thought-cloud::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 15px 15px;
+            border-radius: 50%;
+            opacity: 0;
+            animation: particleFloat 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .thought-cloud:hover::before {
+            opacity: 1;
+        }
+
+        /* Ripple effect on click */
+        .thought-cloud::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: all 0.6s ease-out;
+            pointer-events: none;
+        }
+
+        .thought-cloud.clicked::after {
+            width: 140px;
+            height: 140px;
+            opacity: 0;
+        }
+
+        /* Keyframe animations */
+        @keyframes drawPath {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        @keyframes fadeInDraw {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes bubbleAppear {
+            0% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes emojiPulse {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.5);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        @keyframes particleFloat {
+            0%, 100% {
+                transform: rotate(0deg) scale(1);
+            }
+            50% {
+                transform: rotate(180deg) scale(1.1);
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .thought-cloud {
+                width: 60px;
+                height: 60px;
+                top: -20px;
+                right: -20px;
+            }
+            
+            .thought-emoji {
+                font-size: 20px;
+            }
+        }
+
+        /* Loading state */
+        .thought-cloud.loading .cloud-path {
+            stroke-dasharray: 300;
+            stroke-dashoffset: 300;
+            animation: drawPath 2s ease-out forwards, loadingPulse 1s ease-in-out infinite;
+        }
+
+        @keyframes loadingPulse {
+            0%, 100% {
+                opacity: 0.7;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+    .cloud-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      outline: none;
+    }
+     .popup {
+      display: none;
+      position: fixed;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      border: 2px solid #66b3ff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      z-index: 10;
+    }
+
+    .popup.show {
+      display: block;
+    }
+
+    .popup h2 {
+      margin-top: 0;
+      font-size: 1.4rem;
+      color: #333;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      display: none;
+      z-index: 5;
+    }
+
+    .overlay.show {
+      display: block;
+    }
