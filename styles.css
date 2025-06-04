@@ -447,10 +447,11 @@
       top: 20%;
       left: 50%;
       transform: translateX(-50%);
-      background: white;
-      border: 2px solid #66b3ff;
+      background:#f8f4e8;
+  background-image: url('https://www.transparenttextures.com/patterns/rice-paper-3.png');
       padding: 20px;
-      border-radius: 12px;
+        border: 1px solid #d3c4a3;
+  border-radius: 10px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
       z-index: 10;
     }
@@ -477,3 +478,49 @@
     .overlay.show {
       display: block;
     }
+.validation-content {
+  padding: 1.5em;
+  background:#f8f4e8;
+  background-image: url('https://www.transparenttextures.com/patterns/rice-paper-3.png');
+  background-blend-mode: multiply;
+  border: 1px solid #d3c4a3;
+  border-radius: 10px;
+  max-width: 450px;
+  margin: 2em auto;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Cormorant Garamond';
+  color: #3e2f1c;
+}
+
+
+#nameInput {
+  margin-top: 1.2em;
+  padding: 0.6em 1em;
+  width: 80%;
+  border: 1px solid #d2b48c;
+  border-radius: 6px;
+  font-size: 1em;
+  background: #fefcf8;
+  color: #4b3e3e;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.submitBttn {
+  margin-top: 1.2em;
+  padding: 0.6em 1.4em;
+  background: #7f674c;
+  color: #fffefb;
+  border: none;
+  border-radius: 6px;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'Cormorant Garamond', serif;
+  transition: background 0.3s ease;
+}
+
+.submitBttn:hover {
+  background: #5a4d3a;
+}
+
