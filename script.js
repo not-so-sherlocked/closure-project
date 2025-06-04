@@ -5,6 +5,20 @@
             const weekAfterContent = document.getElementById('week-after-content');
             const daysAfterButton = document.getElementById('days-after-button');
             const dayAfterContent = document.getElementById('day-after-content');
+            const validationContent = document.getElementById('validationContent');
+            const validationButton = document.getElementById('validationButton');
+            const nameInput = document.getElementById('nameInput');
+            //const validationError = document.getElementById('validationError');
+
+            console.warn("heyy heyy you here,this is not for you mf,leave it")
+            //heyy heyy you here,this is not for you mf,leave it
+            
+            const cipherList = ['aW5hag==', 'c2FkbmF2ZWVq'];
+              const checkName = (input) => {
+                const reversed = input.split('').reverse().join('');
+                const encoded = btoa(reversed); // base64 of reversed name
+                return cipherList.includes(encoded);
+                };
 
             daysAfterButton.addEventListener('click', function() {
                 if (dayAfterContent.classList.contains('hidden')) {
@@ -25,24 +39,47 @@
                     weekAfterButton.textContent = 'week after closure project';
                 }
             });
-            letterButton.addEventListener('click', function() {
-                if (originalLetter.classList.contains('hidden')) {
-                    originalLetter.classList.remove('hidden');
-                    letterButton.textContent = 'Hide Letter';
+
+
+            letterButton.addEventListener('click', function () {
+                
+                validationContent.classList.remove('hidden');
+            });
+              validationButton.addEventListener('click', function () {
+                const name = nameInput.value.trim();
+
+            if (checkName(name)) {
+                //alert('Access granted.');
+                //alert('Access granted. Welcome, ' + name + '!');
+
+                validationContent.classList.add('hidden');
+                originalLetter.classList.remove('hidden');
+                letterButton.textContent = 'Hide Letter';
+
+                // Optional: toggle logic
+                letterButton.onclick = () => {
+                    originalLetter.classList.toggle('hidden');
+                    validationContent.classList.add('hidden');
+                    letterButton.textContent = originalLetter.classList.contains('hidden')
+                    ? 'Read the Original Letter'
+                    : 'Hide Letter';
+                };
                 } else {
-                    originalLetter.classList.add('hidden');
-                    letterButton.textContent = 'Read the Original Letter';
+                //alert('Access denied. Name is not authorized.');
+                validationContent.classList.add('hidden');
+                //validationError.classList.remove('hidden');
+               // validationError.textContent = '';
+
                 }
             });
-        });
 
-          const cloudBtn = document.getElementById('cloudBtn');
+            const cloudBtn = document.getElementById('cloudBtn');
             const popup = document.getElementById('popup');
             const overlay = document.getElementById('overlay');
 
             cloudBtn.addEventListener('click', () => {
-                popup.classList.add('show');
-                overlay.classList.add('show');
+                //popup.classList.add('show');
+                //overlay.classList.add('show');
             });
 
             overlay.addEventListener('click', () => {
@@ -137,3 +174,10 @@
         setInterval(() => {
             thoughtCloud.redraw();
         }, 10000);
+ 
+            
+
+
+        });
+
+          
