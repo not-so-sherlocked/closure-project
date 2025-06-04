@@ -33,6 +33,7 @@
         allow="autoplay"
     ></iframe>
     </div>
+
         <div class="manuletter">
             
 
@@ -54,8 +55,20 @@
                 <button id="days-after-button" class="letter-button">Day After</button>
             </div>
 
-                
+                    <div class="validation-content hidden" id="validationContent">
+                    <p>This content is restricted by the host.</p>
+                    <p>Only people who got the link from the host have access.</p>
+                    <p>Please enter your name:</p>
+
+                    <input type="text" id="nameInput" placeholder="Enter your first name name (lower-case)" />
+                    <button class="submitBttn" id="validationButton">Submit</button>
+                </div>
                 <div id="original-letter" class="original-letter hidden">
+                        <div class="validation" id="validation">
+                
+
+                
+    </div>
                     <h1 class="letter-heading">Dear Jani,</h1>
                     
                     <div class="letter-content">
@@ -131,6 +144,12 @@
                 <p class="timestamp" style="text-align: right; margin-top: 40px;">May 25, 2025</p>
                     </div>
 
+                      <div class="popup" id="popup">
+                            <h2 class="letter-heading">Hello from the Cloud!</h2>
+                            <p>This is your random thought bubble 💭. Add your own ideas here.</p>
+                            </div>
+
+
                 </div>
 
             </div>
@@ -153,17 +172,13 @@
 </text>
   </svg>
             </button>
-          <div class="popup" id="popup">
-  <h2>Hello from the Cloud!</h2>
-  <p>This is your random thought bubble 💭. Add your own ideas here.</p>
-</div>
 
     </div>
         </div>
     </div>
 
     <script>
-
+        //console.warn("heyy heyy you here,this is not for you mf,leave it");
     </script>
 </body>
 </html>
