@@ -48,21 +48,21 @@
                 </div>
 
               <div class="letter-button-group">
-                <button id="letter-button" class="letter-button">Read the Original Letter</button>
-                <button id="one-week-button" class="letter-button new-badge-btn" onclick="window.location.href='https://closure-link-20j6mfq40-jeevandas-projects.vercel.app/letter/685eef67fa98e175af343e6e'">Week After Closure Project
+                <button id="letter-button" class="letter-button" onclick="window.location.href='https://closure-link.netlify.app/letter/685eeb36fa98e175af343e6b'">Read the Original Letter</button>
+                <button id="one-week-button-addon" class="letter-button new-badge-btn" onclick="window.location.href='https://closure-link.netlify.app/letter/685eef67fa98e175af343e6e'">Week After Closure Project
                     <span class="badge">New</span>
                 </button>
-                
+                <button id="days-after-button" class="letter-button">Day After</button>
             </div>
 
                     <div class="validation-content hidden" id="validationContent">
-                    <p>To make sure content security the host teliported the entire content in to a secure environment.</p>
+                    <p>This content is restricted by the host.</p>
                     <p>Only people who got the link from the host have access.</p>
                     <p>Please enter your name:</p>
 
-                    
-                    <button class="submitBttn" id="validationButton" onclick="window.location.href='https://closure-link-20j6mfq40-jeevandas-projects.vercel.app/letter/685eeb36fa98e175af343e6b'">redirect</button>
-
+                    <input type="text" id="nameInput" placeholder="Enter your first name name (lower-case)" />
+                    <button class="submitBttn" id="validationButton">Submit</button>
+                </div>
                 <div id="original-letter" class="original-letter hidden">
                         <div class="validation" id="validation">
                 
@@ -72,7 +72,8 @@
                     <h1 class="letter-heading">Dear Jani,</h1>
                     
                     <div class="letter-content">
-                        
+                       
+                        <p class="timestamp" style="text-align: right; margin-top: 40px;">May 24, 2025</p>
 
                     </div>
                 </div>
@@ -90,7 +91,8 @@
                     hidden">
                 <h1 class="letter-heading">Thank You</h1>
                 <div class="thank-you-content">
-                    
+                    <p>Thank you for reading my words and knowing this small part of me.</p>
+                    <p>This letter was my way of letting go - of speaking what I couldn't say for so long.</p>
                 </div>
                 
                 <div class="video-container">
