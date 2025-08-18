@@ -58,8 +58,25 @@ p{margin-bottom:20px;text-align:justify;font-size:18px;color:#5d4b36;}
 .loading{opacity:0.6;pointer-events:none;position:relative;}
 .loading::after{content:'';position:absolute;top:50%;left:50%;width:20px;height:20px;margin:-10px 0 0 -10px;border:2px solid #d4c4a0;border-top:2px solid #7a6b56;border-radius:50%;animation:spin 1s linear infinite;}
 @keyframes spin{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
-.reveal-name{font-weight:bold;color:#c94c4c;cursor:pointer;transition:color 0.3s;}
-.reveal-name:hover{color:#ff6b6b;}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-3px); }
+  40% { transform: translateX(3px); }
+  60% { transform: translateX(-2px); }
+  80% { transform: translateX(2px); }
+  100% { transform: translateX(0); }
+}
+.reveal-name{font-weight:bold;color:#c94c4c;cursor:pointer;transition:color 0.3s;
+  font-weight: bold;
+  color: #c94c4c;
+  cursor: pointer;
+  transition: color 0.3s;}
+
+.reveal-name:hover {
+  color: #ff6b6b;
+  animation: shake 0.3s; /* play shake animation on hover */
+}
 .identity.hidden{display:none;font-weight:bold;color:#4a4a4a;}
 .final-div {
   text-align: center;
@@ -123,12 +140,12 @@ p{margin-bottom:20px;text-align:justify;font-size:18px;color:#5d4b36;}
 <p>
 Hello, it's me again. Last time, I sent you a letter from an anonymous address.
  Your curiosity eventually led you to find out who I am but, as I wished, you chose to keep it unspoken. 
- I respect you deeply for that, and I always will. Still, 
+ I respect you deeply for that, and I always will. Still,if you ever want a clarification about me, 
 <span class="reveal-name" onclick="showIdentity(this)">I am right here.</span>
-<span class="identity hidden"> I am Jeevandas M S.</span>
+<span class="identity hidden"> I am Jeevandas.</span>
 </p>
 <p>In my last letter, my only intention was to free myself from an illusion I had carried for a long time,
-   or to find closure for a story where, without realizing it, you became the main character.</p>
+   or to find closure for a story in which,without your knowing, you became the main character.</p>
 
 <p>From that last letter, what I truly wished for was a clear closure, so I could finally move on from a story that never really began.
    Yet writing it gave me relief from a weight I had carried with me for so long. For the first time, I felt as if I had set something down 
@@ -170,11 +187,11 @@ Hello, it's me again. Last time, I sent you a letter from an anonymous address.
    Perhaps it's because those feelings had lived within me for so long, and I believe that deep wounds take time to heal.
     I left it to time to carry me forward.</p>
 
-<p>Even now,all these days later, I find that the idea of you still remains with me,
+<p>Even now, all these days later, I find that the idea of you still remains with me,
   carrying the same excitement and curiosity as before. A part of me still quietly hopes for you. 
   I know you would never give me a false hope, and I respect that.</p>
 
-<p>I like you for a reason, a reason I cannot always explain may be you are the most gorgeous one my soul has ever met. 
+<p>I like you for a reason- a reason I cannot always explain maybe you are the most gorgeous one my soul has ever met. 
   I also understand how awkward it must feel to hear all of this from someone you hardly know. But at this moment,
    I just want to be honest with myself, and with you.</p>
 
@@ -184,7 +201,7 @@ Hello, it's me again. Last time, I sent you a letter from an anonymous address.
 <p>And finally, I will admit that a small part of me still hopes for you. If you ever feel something real for me, 
   just let me know. I will keep the doors open until life carries me somewhere else.</p>
 
-<p class="signature">Goodbye, until we meet again  may be somewhere near the edge of the universe.</p>
+<p class="signature">Goodbye, until we meet again maybe somewhere near the edge of the universe.</p>
 
  <div class="arrow-container">
     <div class="arrow" onclick="conclution()"></div>
@@ -258,6 +275,31 @@ function proceed(btn, sectionClass){
     btn.classList.remove('loading');
   },500);
 }
+function showThankYou(scenario){
+  document.body.innerHTML = `
+    <div class="letter-container" id="thank-you-container">
+      <div class="letter">
+        <div class="thank-you-page custom-thank-theme">
+          <h1>Thank you for reading until here.</h1>
+          <video class="video-frame" width="100%" autoplay muted loop>
+            <source src="video.mp4" type="video/mp4">
+          </video>
+          <p>
+            I don’t know what led you this far maybe curiosity, maybe something else. I only wish for you to be clear in your own way. 
+            <p/>
+          <p>I know what I’m doing may seem wrong, opening a closed chapter isn’t always my thing.
+             But my intention was only to live the rest of my life without the regret of 'what if.' Thank you for listening so far.</p>
+        </div>
+        <div class="final-div">
+          <p class="lastnote">All these words are polished with various tools, but the feelings are real.</p>
+          <p class="lastnote">Made with love ❤️ by <a href="https://github.com/jeevandas-jd" target="_blank" rel="noopener noreferrer">Jeevandas</a></p>
+        </div>
+      </div>
+    </div>
+  `;
+  document.getElementById('thank-you-container').scrollIntoView({behavior:'smooth', block:'start'});
+  trackAction('page_view', {action:'page_view', extraData:{page:'thank_you', scenario}});
+}
 
 // Leave button
 function leave(btn){
@@ -292,38 +334,11 @@ function leave(btn){
 
 function conclution(){
   trackAction('page_view',{action:'page_view',extraData:{page:'thank_you',scenario:'final_exit'}});
-  document.body.innerHTML=`
-    <div class="letter-container">
-      <div class="letter">
-        <div class="thank-you-page custom-thank-theme">
-          <h1>Thank you for reading until here.</h1>
-                    <video width="100%" autoplay muted loop>
-            <source src="video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <style>
-.video-frame {
-  border: 4px solid #333;       /* dark neat border */
-  border-radius: 10px;           /* rounded corners */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* subtle shadow for depth */
-}
-</style>
+  setTimeout(()=>{
 
-          <p>I don’t know what led you this far  maybe curiosity, maybe something else. If so, 
-            please don’t mind my words; I only wish for you to be clear in your own way.
+    showThankYou();
 
-I know what I’m doing may seem wrong  opening a closed chapter isn’t always my thing.My intention 
-is only to live the rest of my life without the regret of 'what if.' Thank you for listening so far.</p>
-        </div>
-
-      </div>
-<div class="final-div">
-  <p class="lastnote">All these words are polished with various tools, but the feelings are real.</p>
-  <p class="lastnote">Made with love ❤️ by <a href="https://github.com/jeevandas-jd" target="_blank" rel="noopener noreferrer">Jeevandas</a></p>
-</div>
-
-     
-    </div>`;
+  },500);
 }
 // Track page load
 window.addEventListener('load',()=>trackAction('page_load',{page:'letter',scenario:'initial_visit'}));
